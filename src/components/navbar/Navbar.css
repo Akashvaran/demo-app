@@ -1,0 +1,45 @@
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #a8b0bf;
+    color: white;  
+}
+.logo-container img {
+    height: 60px;
+    border-radius: 50%;
+}
+.rounding-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: #4CAF50;
+    color: white; 
+}
+
+.login-button:hover {
+    background-color: #45a049;
+}
+.signup-button {
+    background-color: #2196F3;
+    color: white;
+}
+.signup-button:hover {
+    background-color: #0b7dda;
+}
+
