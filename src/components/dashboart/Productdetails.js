@@ -11,7 +11,7 @@ export const Productdetails = () => {
         const fetchUserDetails = async () => {
             try {
                 const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
-                setUser(response.data);  // Set user details to state
+                setUser(response.data);  
             } catch (error) {
                 console.log(error);
             }

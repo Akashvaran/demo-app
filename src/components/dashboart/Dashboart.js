@@ -9,7 +9,7 @@ export const Dashboart = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-            setUsers(response.data);  // Set user data to state
+            setUsers(response.data); 
         } catch (error) {
             console.log(error);
         }
