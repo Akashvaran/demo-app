@@ -1,40 +1,40 @@
-import React, { useState } from 'react'
-import './Dashboart.css'
-import axios from 'axios'
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import './Dashboart.css';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export const Dashboart = () => {
-    const [product, setProduct] = useState([])
+    const [users, setUsers] = useState([]);
 
-    const feachdata = async () => {
+    const fetchData = async () => {
         try {
-            const responce = await axios.get('https://fakestoreapi.com/products',)
-            setProduct(responce.data)
+            const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+            setUsers(response.data);  // Set user data to state
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-
     }
+
     useEffect(() => {
-        feachdata()
-    }, [])
-   
+        fetchData();
+    }, []);
+
     return (
         <>
             <div className='cart-container'>
-                {product.map((product) => {
-                     const name = product.title.length > 20 ? product.title.substring(0, 20) + ".." : product.title;  
-                  return  (
-                    <div className="product" key={product.id}>
-                        <img className='product-image' src={product.image} alt='products' />
-                        <h3 className='product-title'>{name}</h3>
-                        <p className='product-price'>Price: ${product.price}</p>
-                      <Link to={`/products/${product.id}`}> <button className='product-view'>view</button></Link> 
-                    </div>
-                )})}
-
+                {users.map((user) => {
+                    const name = user.name.length > 20 ? user.name.substring(0, 20) + ".." : user.name;
+                    return (
+                        <div className="user-card" key={user.id}>
+                            <h3 className='user-name'>{name}</h3>
+                            <p className='user-email'>Email: {user.email}</p>
+                            <p className='user-company'>Company: {user.company.name}</p>
+                            <Link to={`/users/${user.id}`}><button className='view-details'>View Details</button></Link>
+                        </div>
+                    );
+                })}
             </div>
         </>
     )
 }
+

@@ -1,33 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import './Productdetails.css'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import './Productdetails.css';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export const Productdetails = () => {
-    const {id}=useParams()
-    const [product,setProduct]=useState([])
+    const { id } = useParams();
+    const [user, setUser] = useState({});
 
-    useEffect(()=>{
-        const feachproducts=async()=>{
+    useEffect(() => {
+        const fetchUserDetails = async () => {
             try {
-                const responce=await axios.get(`https://fakestoreapi.com/products/${id}`)
-            setProduct(responce.data)
+                const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`);
+                setUser(response.data);  // Set user details to state
             } catch (error) {
-                console.log(error)
+                console.log(error);
             }
         }
-        feachproducts()
-    },[id])
+        fetchUserDetails();
+    }, [id]);
 
     return (
         <>
-            <div className="product-details-container">
-            <img className="product-image" src={product.image} alt={product.title} />
-            <h2 className="product-title">{product.title}</h2>
-            <p className="product-price">Price: ${product.price}</p>
-            <p className="product-description">{product.description}</p>
-            <button className="back-button" onClick={() => window.history.back()}>Back to Products</button>
-        </div>
+            <div className="user-details-container">
+                <h2 className="user-name">{user.name}</h2>
+                <p className="user-username"><strong>Username:</strong> {user.username}</p>
+                <p className="user-email"><strong>Email:</strong> {user.email}</p>
+                <p className="user-phone"><strong>Phone:</strong> {user.phone}</p>
+                <p className="user-website"><strong>Website:</strong> {user.website}</p>
+                <p className="user-address">
+                    <strong>Address:</strong> {user.address?.street}, {user.address?.suite}, {user.address?.city}, {user.address?.zipcode}
+                </p>
+                <p className="user-company"><strong>Company:</strong> {user.company?.name}</p>
+                <button className="back-button" onClick={() => window.history.back()}>Back to Users</button>
+            </div>
         </>
-    )
+    );
 }

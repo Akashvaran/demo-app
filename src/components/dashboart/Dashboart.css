@@ -4,47 +4,50 @@
     justify-content: center;
     margin-top: 20px;
 }
-.product {
+
+.user-card {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
-    margin: 20px;    
-    width: 300px;
+    margin: 20px;
+    width: 250px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s;
 }
-.product:hover {
+
+.user-card:hover {
     transform: scale(1.05);
-    background: linear-gradient(145deg, #cbf3cb, #e9c3c3);
-    box-shadow: 0 4px 20px rgba(255, 0, 0, 1);
-}
-.product-image {
-    height: 100px;
-   width: 200px;
-    border-radius: 4px;
-}
-.product-title {
-    font-size: 1.2em;
-    margin: 10px 0;
+    background: linear-gradient(145deg, #dff0d8, #f8d7da);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
 }
 
-.product-price {
-    font-size: 1em;
+.user-name {
+    font-size: 1.3em;
+    font-weight: bold;
     color: #333;
+    margin-bottom: 10px;
 }
 
-.product-view {
+.user-email,
+.user-company {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.view-details {
     background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.product-view:hover {
+.view-details:hover {
     background-color: #0056b3;
 }
+

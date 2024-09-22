@@ -22,7 +22,7 @@ function App() {
           
           
           <Route path='/dashboard' element={isLoggedIn ? <Dashboart /> : <Navigate to='/login' />} />
-          <Route path='/products/:id' element={isLoggedIn ? <Productdetails /> : <Navigate to='/login' />} />
+          <Route path='/users/:id' element={isLoggedIn ? <Productdetails /> : <Navigate to='/login' />} />
         </Routes>
       </BrowserRouter>
     </>
